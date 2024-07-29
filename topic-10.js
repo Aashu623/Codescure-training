@@ -11,7 +11,14 @@ class Employee {
 
     // sort by name
     static sortByName(employees) {
-        return employees.sort((a, b) => a.name.localeCompare(b.name))
+        return employees.sort((a, b) => {
+            if (a.name < b.name) {
+                return -1
+            }
+            else {
+                return 1
+            }
+        })
     }
 
     // sort by age
@@ -21,7 +28,14 @@ class Employee {
 
     // sort by email
     static sortByEmail(employees) {
-        return employees.sort((a, b) => a.email.localeCompare(b.email))
+        return employees.sort((a, b) => {
+            if (a.email < b.email) {
+                return -1
+            }
+            else {
+                return 1
+            }
+        })
     }
 
     // sort by salary
@@ -43,8 +57,8 @@ const employees = [
     new Employee('aman', 22, 'aman@gmail.com', 300000, 1234567890, 'male'),
     new Employee('aashish', 22, 'aashish@gmail.com', 100000, 1234567890, 'male'),
     new Employee('raj', 24, 'raj@gmail.com', 200000, 1234567890, 'male'),
-    new Employee('kavya', 26, 'aashish@gmail.com', 600000, 1234567890, 'male'),
-    new Employee('nitin', 28, 'aashish@gmail.com', 520000, 1234567890, 'male'),
+    new Employee('kavya', 26, 'kavya@gmail.com', 600000, 1234567890, 'male'),
+    new Employee('nitin', 28, 'nitin@gmail.com', 520000, 1234567890, 'male'),
 ]
 //sort by name
 const employeesSortByName = Employee.sortByName(employees)
@@ -63,5 +77,5 @@ const employeesSortBySalary = Employee.sortBySalary(employees)
 console.log('sorted by salary', employeesSortBySalary)
 
 //filtered by age
-const employeesFilteredByAge = Employee.filterByAge(employees,25)
+const employeesFilteredByAge = Employee.filterByAge(employees, 25)
 console.log('filtered by age', employeesFilteredByAge)
