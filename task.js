@@ -21,8 +21,8 @@ console.log(`The Maximum number will be ${maxi}`)
 async function fetchData() {
     try {
         const response = await fetch('https://dummyjson.com/products/categories')
-        const json = response.json()
-        console.log(json)
+        const json = await response.json()
+        console.log(json.length)
     } catch (error) {
         console.log(error)
     }

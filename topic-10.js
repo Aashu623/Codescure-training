@@ -48,6 +48,20 @@ class Employee {
         return employees.filter((employee) => employee.age > age)
     }
 
+    static filterBy(employees, attribute) {
+        switch (attribute) {
+            case 'name':
+                return this.sortByName(employees);
+            case 'age':
+                return this.sortByAge(employees);
+            case 'email':
+                return this.sortByEmail(employees);
+            case 'salary':
+                return this.sortBySalary(employees);
+            default:
+                return employees
+        }
+    }
 }
 
 
@@ -79,3 +93,7 @@ console.log('sorted by salary', employeesSortBySalary)
 //filtered by age
 const employeesFilteredByAge = Employee.filterByAge(employees, 25)
 console.log('filtered by age', employeesFilteredByAge)
+
+//sort based on attribute
+const employeeOnAttribute = Employee.filterBy(employees, 'age')
+console.log(`Sorted by age`, employeeOnAttribute)
